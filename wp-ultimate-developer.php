@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Ultimate developer
- * Version: 1.0.0
+ * Version: 1.0.1
  * Plugin URI: http://www.greenwiremedia.com/
  * Description: Development Tool
  * Author: JV@GWM
@@ -19,30 +19,28 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-// require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
-// $update_checker = Puc_v4_Factory::buildUpdateChecker(
-// 	'',
-// 	__FILE__,
-// 	'wp-ultimate-dev'
-// );
-// $update_checker->setBranch('master');
-// $update_checker->setAuthentication('');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
+$update_checker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/runchuks/wp-ultimate-dev',
+	__FILE__,
+	'wp-ultimate-dev'
+);
+$update_checker->setBranch('master');
+$update_checker->setAuthentication('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');
 
 class WP_Ultimate_Developer{
 
 
     function __construct(){
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
 
         add_action( 'admin_menu', [$this,'admin_menu']);
-
         add_action( 'wp_ajax_get_tree', [$this,'get_tree'] );
-
         add_action( 'wp_ajax_get_file_content', [$this,'get_file_content'] );
         add_action( 'wp_ajax_set_file_content', [$this,'set_file_content'] );
+        add_action( 'wp_ajax_new_file', [$this,'new_file'] );
     }
     function admin_menu(){
         add_menu_page(
@@ -144,6 +142,17 @@ class WP_Ultimate_Developer{
        }
 
        return $result;
+    }
+    function new_file(){
+        $path = $_POST['path'];
+        $filename = $_POST['filename'];
+
+        $file = fopen($path.'/'.$filename, "w");
+        fclose($file);
+
+        wp_send_json([
+            'debug' => [$path,$filename]
+        ]);
     }
 }
 new WP_Ultimate_Developer();
