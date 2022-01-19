@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Ultimate developer
- * Version: 1.0.1
+ * Version: 1.0.2
  * Plugin URI: http://www.greenwiremedia.com/
  * Description: Development Tool
  * Author: JV@GWM
@@ -19,9 +19,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
 $update_checker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/runchuks/wp-ultimate-dev',
