@@ -13,7 +13,7 @@
  *
  * @package WordPress
  * @author JV@GWM
- * @since 1.0.0
+ * @since 1.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
