@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Ultimate developer
- * Version: 1.1.0
+ * Version: 1.1.1
  * Plugin URI: http://www.greenwiremedia.com/
  * Description: Development Tool
  * Author: JV@GWM
@@ -19,6 +19,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+define('WPUD_VERISON','1.1.1');
 
 require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
 $update_checker = Puc_v4_Factory::buildUpdateChecker(
@@ -60,10 +62,10 @@ class WP_Ultimate_Developer{
             <script src="https://unpkg.com/state-local@1.0.7/lib/umd/state-local.min.js" crossorigin ></script>
             <script src="https://unpkg.com/@monaco-editor/loader@0.1.2/lib/umd/monaco-loader.min.js" crossorigin ></script>
             <script src="https://unpkg.com/@monaco-editor/react@4.0.0/lib/umd/monaco-react.min.js" crossorigin ></script>
-            <script type="text/babel" src="<?=plugins_url('dist/js/script.js', __FILE__)?>"></script>
+            <script type="text/babel" src="<?=plugins_url('dist/js/script.js?v='.WPUD_VERISON, __FILE__)?>"></script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-            <link rel="stylesheet" href="<?=plugins_url('dist/css/styles.css', __FILE__)?>"/>
+            <link rel="stylesheet" href="<?=plugins_url('dist/css/styles.css?v='.WPUD_VERISON, __FILE__)?>"/>
             <div id="root"></div>
         <?php
     }
