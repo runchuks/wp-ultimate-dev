@@ -26,7 +26,7 @@ require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-check
 $update_checker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/runchuks/wp-ultimate-dev',
 	__FILE__,
-	'wp-ultimate-dev'
+	'wp-ultimate-developer'
 );
 $update_checker->setBranch('master');
 $update_checker->setAuthentication('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');
