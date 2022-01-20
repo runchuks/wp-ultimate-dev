@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: WP Ultimate developer
- * Version: 1.1.1
+ * Version: 1.1.2
  * Plugin URI: http://www.greenwiremedia.com/
  * Description: Development Tool
  * Author: JV@GWM
  * Author URI: http://www.greenwiremedia.com/
  * Requires at least: 4.0
- * Tested up to: 4.0
+ * Tested up to: 5.8.3
  *
  * Text Domain: wp-ultimate-dev
  *
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define('WPUD_VERISON','1.1.1');
+define('WPUD_VERISON','1.1.2');
 
 require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
 $update_checker = Puc_v4_Factory::buildUpdateChecker(

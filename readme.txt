@@ -8,7 +8,10 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
-
+= 1.1.2 =
+* Welcome screen
+* Individual Editor instances for each file
+* Tabs UI
 = 1.1.1 =
 * Added tabs
 * Added save indicator
