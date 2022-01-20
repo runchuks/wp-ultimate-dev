@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Ultimate developer
- * Version: 1.0.2
+ * Version: 1.1.0
  * Plugin URI: http://www.greenwiremedia.com/
  * Description: Development Tool
  * Author: JV@GWM
@@ -110,13 +110,16 @@ class WP_Ultimate_Developer{
         $content = $_POST['content'];
         try{
             $content = file_put_contents($path,stripslashes($content));
+            wp_send_json([
+                'success'   => true,
+                'time'      => date('d.m.Y H:i:s',time())
+            ]);
         }catch(Exception $e){
             wp_send_json_error([
                 'error' => $e
             ]);
         }
 
-        wp_die();
     }
 
     function dirToArray($dir) {
