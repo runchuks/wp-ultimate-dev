@@ -29,7 +29,6 @@ $update_checker = Puc_v4_Factory::buildUpdateChecker(
 	'wp-ultimate-developer'
 );
 $update_checker->setBranch('master');
-$update_checker->setAuthentication('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');
 
 class WP_Ultimate_Developer{
 
